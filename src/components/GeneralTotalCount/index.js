@@ -5,7 +5,8 @@ import {
   PolarGrid,
   Legend,
   PolarAngleAxis,
-  PolarRadiusAxis
+  PolarRadiusAxis,
+  ResponsiveContainer
 } from "recharts";
 
 const sampledata = [
@@ -30,24 +31,19 @@ export default function GeneralTotalCount() {
     }, 50000);
   });
   return (
-    <RadarChart
-      cx={300}
-      cy={150}
-      outerRadius={150}
-      width={600}
-      height={500}
-      data={data}
-    >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis />
-      <Radar
-        name="GeneralTotalCount"
-        dataKey="A"
-        stroke="#993366"
-        fill="#999933"
-        fillOpacity={0.6}
-      />
-    </RadarChart>
+    <ResponsiveContainer aspect={1.6}>
+      <RadarChart outerRadius={100} data={data}>
+        <PolarGrid />
+        <PolarAngleAxis dataKey="subject" />
+        <PolarRadiusAxis angle={30} domain={[0, 150]} />
+        <Radar
+          name="GeneralTotalCount"
+          dataKey="A"
+          stroke="#993366"
+          fill="#999933"
+          fillOpacity={0.6}
+        />
+      </RadarChart>
+    </ResponsiveContainer>
   );
 }

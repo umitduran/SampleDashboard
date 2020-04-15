@@ -6,7 +6,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 const sampledata = [
   {
@@ -63,24 +64,24 @@ export default function OrderCountByCity() {
     }, 30000);
   });
   return (
-    <LineChart
-      width={600}
-      height={300}
-      data={data}
-      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-    >
-      <XAxis dataKey="city_name" />
-      <YAxis />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Tooltip />
-      <Legend />
-      <Line
-        type="monotone"
-        dataKey="Kiz_Bebek_Tulum"
-        stroke={randomColor()}
-        activeDot={{ r: 8 }}
-      />
-      <Line type="monotone" dataKey="MickeyMouseKiz" stroke="#82ca9d" />
-    </LineChart>
+    <ResponsiveContainer aspect={1.6}>
+      <LineChart
+        data={data}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      >
+        <XAxis dataKey="city_name" />
+        <YAxis />
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        <Legend />
+        <Line
+          type="monotone"
+          dataKey="Kiz_Bebek_Tulum"
+          stroke={randomColor()}
+          activeDot={{ r: 8 }}
+        />
+        <Line type="monotone" dataKey="MickeyMouseKiz" stroke="#82ca9d" />
+      </LineChart>
+    </ResponsiveContainer>
   );
 }

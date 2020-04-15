@@ -47,31 +47,66 @@ function App() {
   const classes = useStyles();
   return (
     <div className="{classes.root}">
-      <Grid container spacing={6}>
-        <Grid className={classes.header} item xs={12}>
+      <Grid container>
+        <Grid className={classes.header} item xs={12} sm={12}>
           <header>Veloxity Dashboard</header>
         </Grid>
-        <Grid className={classes.GeneralTotalCount} item xs={4}>
+        <Grid
+          className={classes.GeneralTotalCount}
+          item
+          xs={10}
+          sm={12}
+          md={6}
+          lg={4}
+        >
           <h1>General Total Count</h1>
           <GeneralTotalCount />
         </Grid>
-        <Grid className={classes.OrderCountByCity} item xs={4}>
+        <Grid
+          className={classes.OrderCountByCity}
+          item
+          xs={10}
+          sm={12}
+          md={6}
+          lg={4}
+        >
           <h1>Order Count by City</h1>
           <OrderCountByCity />
         </Grid>
-        <Grid className={classes.TotalCategoryOrderCount} item xs={4}>
+        <Grid
+          className={classes.TotalCategoryOrderCount}
+          item
+          xs={10}
+          sm={12}
+          md={6}
+          lg={4}
+        >
           <h1>Total Category Count</h1>
           <TotalCategoryOrderCount />
         </Grid>
-        <Grid className={classes.TopCategoryBar} item xs={4}>
+        <Grid
+          className={classes.TopCategoryBar}
+          item
+          xs={10}
+          sm={12}
+          md={6}
+          lg={4}
+        >
           <h1>Top Category</h1>
           <TopCategoryBar />
         </Grid>
-        <Grid className={classes.TotalOrderCount} item xs={4}>
+        <Grid
+          className={classes.TotalOrderCount}
+          item
+          xs={10}
+          sm={12}
+          md={6}
+          lg={4}
+        >
           <h1>Total Order Count</h1>
           <TotalOrderCount />
         </Grid>
-        <Grid className={classes.ProfitBar} item xs={4}>
+        <Grid className={classes.ProfitBar} item xs={10} sm={12} md={6} lg={4}>
           <h1>Product Profit</h1>
           <ProfitBar />
         </Grid>

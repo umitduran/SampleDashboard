@@ -6,7 +6,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 
 const sampledata = [
@@ -31,28 +32,25 @@ export default function ProfitBar() {
     }, 20000);
   });
   return (
-    <BarChart
-      width={600}
-      height={300}
-      data={data}
-      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="profit" fill="#ff8c1a" background={{ fill: "#ffe6cc" }} />
-      <Bar
-        dataKey="visitorCount"
-        fill="#ff80ff"
-        background={{ fill: "#ffe6ff" }}
-      />
-      <Bar
-        dataKey="totalSold"
-        fill="#339933"
-        background={{ fill: "#ecf9ec" }}
-      />
-    </BarChart>
+    <ResponsiveContainer aspect={1.6}>
+      <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="profit" fill="#ff8c1a" background={{ fill: "#ffe6cc" }} />
+        <Bar
+          dataKey="visitorCount"
+          fill="#ff80ff"
+          background={{ fill: "#ffe6ff" }}
+        />
+        <Bar
+          dataKey="totalSold"
+          fill="#339933"
+          background={{ fill: "#ecf9ec" }}
+        />
+      </BarChart>
+    </ResponsiveContainer>
   );
 }

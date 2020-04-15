@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { RadialBarChart, RadialBar, Legend } from "recharts";
+import {
+  RadialBarChart,
+  RadialBar,
+  Legend,
+  ResponsiveContainer
+} from "recharts";
 export default function TotalCategoryOrderCount() {
   const sampledata = [
     { name: "Kız Bebek Tulum", count: 1689, fill: "#8884d8" },
@@ -10,8 +15,8 @@ export default function TotalCategoryOrderCount() {
   ];
   const style = {
     top: 0,
-    left: 350,
-    lineHeight: "36px"
+    left: 0,
+    lineHeight: "24px"
   };
   const [data, setData] = useState(sampledata);
   useEffect(() => {
@@ -28,31 +33,22 @@ export default function TotalCategoryOrderCount() {
     }, 45000);
   });
   return (
-    <RadialBarChart
-      width={500}
-      height={300}
-      cx={150}
-      cy={150}
-      innerRadius={20}
-      outerRadius={140}
-      barSize={30}
-      data={data}
-    >
-      <RadialBar
-        minAngle={15}
-        label={{ position: "insideStart", fill: "#fff" }}
-        background
-        clockWise={true}
-        dataKey="count"
-      />
-      <Legend
-        iconSize={10}
-        width={120}
-        height={140}
-        layout="vertical"
-        verticalAlign="middle"
-        wrapperStyle={style}
-      />
-    </RadialBarChart>
+    <ResponsiveContainer aspect={1.6}>
+      <RadialBarChart barSize={30} data={data}>
+        <RadialBar
+          minAngle={15}
+          label={{ position: "insideStart", fill: "#fff" }}
+          background
+          clockWise={true}
+          dataKey="count"
+        />
+        <Legend
+          iconSize={5}
+          layout="vertical"
+          verticalAlign="left"
+          wrapperStyle={style}
+        />
+      </RadialBarChart>
+    </ResponsiveContainer>
   );
 }

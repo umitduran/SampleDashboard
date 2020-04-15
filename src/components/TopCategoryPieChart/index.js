@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
 
 const sampledata = [
   { name: "Moda", value: 1129 },
@@ -108,18 +108,18 @@ export default function TopCategoryBar() {
     }, 54000);
   });
   return (
-    <PieChart width={800} height={400}>
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        data={data}
-        cx={300}
-        cy={200}
-        innerRadius={60}
-        outerRadius={80}
-        fill={randomColor()}
-        onMouseEnter={onPieEnter}
-      />
-    </PieChart>
+    <ResponsiveContainer aspect={1.6}>
+      <PieChart>
+        <Pie
+          activeIndex={activeIndex}
+          activeShape={renderActiveShape}
+          data={data}
+          innerRadius={60}
+          outerRadius={80}
+          fill={randomColor()}
+          onMouseEnter={onPieEnter}
+        />
+      </PieChart>
+    </ResponsiveContainer>
   );
 }
